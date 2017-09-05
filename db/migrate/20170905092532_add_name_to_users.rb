@@ -10,7 +10,7 @@ class AddNameToUsers < ActiveRecord::Migration
     add_column :users, :birthday, :date, :null => false
     add_column :users, :postal_code, :string
     add_column :users, :address, :string, :null => false
-    add_column :users, :facebook_id, :string
+    add_column :users, :facebook_id, :string, :unique => true
     add_column :users, :skype_id, :string
     add_column :users, :subscibe, :integer
     add_column :users, :dog_id, :integer

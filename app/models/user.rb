@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates :nickname, presence: true, length: { maximum: 6 }
   has_many :tweets
   has_many :comments
+  has_many :likes
 end

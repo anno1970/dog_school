@@ -5,7 +5,18 @@ class ApplicationController < ActionController::Base
 
  before_action :configure_permitted_parameters, if: :devise_controller?
 
- def configure_permitted_parameters
-   devise_parameter_sanitizer.for(:sign_up) << :nickname
- end
+  private
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :birthday, :address]
+    devise_parameter_sanitizer.for(:sign_in) << [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :birthday, :address]
+    devise_parameter_sanitizer.for(:account_update) << [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :birthday, :address]
+  end
+
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :password, :birthday, :address])
+  # end
+  # def configure_permitted_parameters
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :email, :birthday, :address])
+  # end
+
 end

@@ -12,11 +12,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :birthday, :address]
   end
 
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :password, :birthday, :address])
-  # end
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name_kanji, :last_name_kanji, :first_name_kana, :last_name_kana, :nickname, :email, :birthday, :address])
-  # end
-
 end
